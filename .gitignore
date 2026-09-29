@@ -13,7 +13,14 @@
 # 调试产物：adb 截屏与 uiautomator dump
 # （dump 出的 xml 里含真实日程内容，不入库）
 *.png
+*.jpg
+*.jpeg
 *.xml.dump
+
+# README 展示用截图是唯一例外
+!docs/*.png
+!docs/*.jpg
+!docs/*.jpeg
 
 # 签名密钥：含私钥，绝不入库
 *.keystore
@@ -25,7 +32,6 @@
 *.apk.idsig
 *.class
 *.dex
-*.idsig
 
 # 日志与临时文件
 *.log

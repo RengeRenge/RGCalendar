@@ -4,6 +4,12 @@
 
 > 本应用走 **Android APK + AppWidget** 路线。最初评估过鸿蒙原生服务卡片：该设备 HarmonyOS 版本低于 API 10，Calendar Kit 不存在，且第三方无法申请 `READ_WHOLE_CALENDAR` 权限，故放弃。
 
+## 效果
+
+<img width="2224" height="2496" alt="image" src="https://github.com/user-attachments/assets/98aa6335-b837-4a8b-bbf0-a329df6e1e07" />
+
+左为华为系统「日历」服务卡片，右为本应用的小工具。背景的 45° 紫渐变、16dp 圆角、四边内缩均按真机逐像素对齐，内容到卡片边缘的距离也与之相同。
+
 ## 功能
 
 - **紧凑卡片**：最多显示最近 4 条日程，分组标题（今天 / 明天 / N天后）弱化、首条日程突出、重点日（法定假日、调休、生日 / 纪念日）高亮
