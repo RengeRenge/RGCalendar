@@ -6,7 +6,7 @@
 
 ## 效果
 
-<img width="2224" height="2496" alt="image" src="https://github.com/user-attachments/assets/98aa6335-b837-4a8b-bbf0-a329df6e1e07" />
+<img width="2224" height="2496" alt="111111" src="https://github.com/user-attachments/assets/613742a9-0ced-40fe-bbae-e4a453afbcb4" />
 
 左为华为系统「日历」服务卡片，右为本应用的小工具。背景的 45° 紫渐变、16dp 圆角、四边内缩均按真机逐像素对齐，内容到卡片边缘的距离也与之相同。
 
