@@ -1,0 +1,32 @@
+# ============================================================
+# 构建工具链（约 1 GB，可重新下载，不入库）
+#   .tools/android-sdk  ≈ 394 MB
+#   .tools/jdk17        ≈ 303 MB
+#   .tools/downloads    ≈ 336 MB
+# 只保留仓库里那几个构建脚本，其余一律忽略。
+# 注意必须写成 .tools/* 而不是 .tools/ —— 后者会让下面的 ! 重新包含失效。
+# ============================================================
+.tools/*
+!.tools/*.bat
+!.tools/*.ps1
+
+# 调试产物：adb 截屏与 uiautomator dump
+# （dump 出的 xml 里含真实日程内容，不入库）
+*.png
+*.xml.dump
+
+# 签名密钥：含私钥，绝不入库
+*.keystore
+*.jks
+
+# 构建中间产物
+.build/
+*.apk
+*.apk.idsig
+*.class
+*.dex
+*.idsig
+
+# 日志与临时文件
+*.log
+*.tmp

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 配色照抄华为「日历」服务卡片：45° 对角渐变，左下（蓝紫）→ 右上（粉紫），圆角 16dp。
+     圆角半径是按系统卡片左上角轮廓用 inset(dy)=r-√(r²-(r-dy)²) 拟合出来的，
+     r=50px=16.0dp，两边完全一致。系统卡片无描边、无投影，这里也不加。
+
+     色值是「补偿后」的，不等于直接从系统卡片上取到的采样值：
+     真机渲染出的读数比标称色值低（本机实测 B 通道固定低 7~8、R 通道低 0~8），
+     所以每一轮都按「渲染读数 vs 系统读数」的差值反向补一次。
+
+     逐点采样还原出系统卡片渐变的真实形态（按 45° 对角位置 t 归一化）：
+       R 从 115 线性升到 190（唯一一路贯穿全程变化的通道）
+       G 从 133 升到约 148，且 t>0.5 之后基本恒定
+       B 全程恒定在 247~248
+     也就是说它其实是「色相 + 饱和度」渐变，而不是明度渐变，色相整体偏冷。
+     单段线性插值只有两端能对上、中段会塌 7~9，所以补一个 centerColor
+     （Android 的 <gradient> 里 centerColor 默认正好落在 50% 位置）把中段抬起来。
+     校正后的目标读数：左下 (115,133,247)、中段 (158,148,248)、右上 (190,147,248)。 -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+
+    <gradient
+        android:angle="45"
+        android:startColor="#FF6B84FE"
+        android:centerColor="#FFA094FF"
+        android:endColor="#FFC892FE"
+        android:type="linear" />
+
+    <corners android:radius="16dp" />
+</shape>

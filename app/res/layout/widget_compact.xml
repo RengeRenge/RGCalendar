@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- 卡片的内缩不靠 layout_margin（部分桌面会忽略 RemoteViews 子视图的边距，
+         卡片就会一直铺满整个格子），而是画进背景 drawable 的 <inset> 里；
+         内容再用 padding 对齐同样的内缩。左右 10.8dp、顶部 5dp、底部 29.2dp。
+
+         内容到卡片边缘的距离按系统「日历」服务卡片实测值对齐（左 10.9dp / 上 15dp）：
+         paddingLeft/Right 22 - insetLeft/Right 10.8 = 11.2dp；paddingTop 14 - insetTop 5 = 9dp，
+         再加上行自身的 4dp padding 与行内 leading，视觉上约 15dp。
+
+         行与行之间的留白用 TextView 自身的 paddingTop/paddingBottom 制造：
+         layout_margin 会被桌面忽略，padding 不会。行内容是从 paddingTop 往下排的，
+         所以底部留白只取决于「前面所有行的高度」，而与最后一行的 paddingBottom 无关；
+         底部那几 dp 的差就是靠每行 paddingBottom 4→5dp 把内容整体压下来的。 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@drawable/widget_bg_inset"
+        android:paddingLeft="22dp"
+        android:paddingRight="22dp"
+        android:paddingTop="14dp"
+        android:paddingBottom="35dp">
+
+        <TextView
+            android:id="@+id/compact_line1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="4dp"
+            android:paddingBottom="5dp"
+            android:textColor="#CCFFFFFF"
+            android:textSize="10sp"
+            android:maxLines="1"
+            android:ellipsize="end" />
+
+        <TextView
+            android:id="@+id/compact_line2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="4dp"
+            android:paddingBottom="5dp"
+            android:textColor="#FFFFFFFF"
+            android:textSize="16sp"
+            android:maxLines="1"
+            android:ellipsize="end" />
+
+        <TextView
+            android:id="@+id/compact_line3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="4dp"
+            android:paddingBottom="5dp"
+            android:textColor="#FFFFFFFF"
+            android:textSize="12.5sp"
+            android:maxLines="1"
+            android:ellipsize="end" />
+
+        <TextView
+            android:id="@+id/compact_line4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="4dp"
+            android:paddingBottom="5dp"
+            android:textColor="#FFFFFFFF"
+            android:textSize="12.5sp"
+            android:maxLines="1"
+            android:ellipsize="end" />
+
+        <TextView
+            android:id="@+id/compact_line5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="4dp"
+            android:paddingBottom="5dp"
+            android:textColor="#FFFFFFFF"
+            android:textSize="12.5sp"
+            android:maxLines="1"
+            android:ellipsize="end" />
+
+        <TextView
+            android:id="@+id/compact_line6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="4dp"
+            android:paddingBottom="5dp"
+            android:textColor="#FFFFFFFF"
+            android:textSize="12.5sp"
+            android:maxLines="1"
+            android:ellipsize="end" />
+
+        <TextView
+            android:id="@+id/compact_line7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="4dp"
+            android:paddingBottom="5dp"
+            android:textColor="#FFFFFFFF"
+            android:textSize="12.5sp"
+            android:maxLines="1"
+            android:ellipsize="end" />
+
+        <TextView
+            android:id="@+id/compact_line8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="4dp"
+            android:paddingBottom="5dp"
+            android:textColor="#FFFFFFFF"
+            android:textSize="12.5sp"
+            android:maxLines="1"
+            android:ellipsize="end" />
+    </LinearLayout>
+</FrameLayout>

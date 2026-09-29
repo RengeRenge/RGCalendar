@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">桌面日程</string>
+    <string name="widget_list_name">桌面日程 · 列表</string>
+    <string name="widget_compact_name">桌面日程 · 卡片</string>
+    <string name="widget_list_desc">可滚动，查看接下来所有日程</string>
+    <string name="widget_compact_desc">极简卡片，显示接下来几条日程</string>
+    <string name="need_permission">请打开「桌面日程」授予日历权限</string>
+    <string name="no_events">暂无日程</string>
+</resources>
