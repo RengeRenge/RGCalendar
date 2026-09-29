@@ -1,11 +1,12 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <!-- 卡片的内缩不靠 layout_margin（部分桌面会忽略 RemoteViews 子视图的边距，
          卡片就会一直铺满整个格子），而是画进背景 drawable 的 <inset> 里；
-         内容再用 padding 对齐同样的内缩。左右 10.8dp、顶部 5dp、底部 29.2dp。
+         内容再用 padding 对齐同样的内缩（内缩量见 values/dimens.xml，
+         折叠/展开两态各一档，见 values-sw600dp/dimens.xml）。
 
          内容到卡片边缘的距离按系统「日历」服务卡片实测值对齐（左 10.9dp / 上 15dp）：
          paddingLeft/Right 22 - insetLeft/Right 10.8 = 11.2dp；paddingTop 14 - insetTop 5 = 9dp，

@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- 把卡片的内缩直接画进背景，而不是依赖 layout_margin：
      有些桌面在渲染 RemoteViews 时会忽略子视图的边距，导致卡片一直铺满整个格子。
-     这里的内缩按真机像素实测反复校准：
-     华为日历服务卡片实际为 429x429px（137dp，刚好铺满它自己的格子），
-     我们的小工具槽位更大（518x554px），所以用内缩把卡片收到与之相同的视觉大小，
-     并让顶边与它齐平（顶边对齐靠 insetTop，底边对齐靠 insetBottom）。
-     左右 10.8dp、顶部 5dp、底部 29.2dp（小数是为真机像素取整后与系统卡片逐边对齐）。 -->
+     内缩量按真机像素实测校准，华为「日历」服务卡片是 429x429px（铺满它自己的格子），
+     我们的槽位更大，用内缩把卡片收到同样大小、四边与它对齐。
+
+     数值放在 dimens 里按屏幕状态分档（折叠态 values/、展开态 values-sw600dp/）：
+     折叠和展开时桌面槽位几何不同，一套常数对不上，但结构只有这一份，值由系统自动选。 -->
 <inset xmlns:android="http://schemas.android.com/apk/res/android"
     android:drawable="@drawable/widget_bg"
-    android:insetLeft="10.8dp"
-    android:insetRight="10.8dp"
-    android:insetTop="5dp"
-    android:insetBottom="29.2dp" />
+    android:insetLeft="@dimen/widget_card_inset_left"
+    android:insetRight="@dimen/widget_card_inset_right"
+    android:insetTop="@dimen/widget_card_inset_top"
+    android:insetBottom="@dimen/widget_card_inset_bottom" />

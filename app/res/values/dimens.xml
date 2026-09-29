@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 卡片（widget_bg_inset）相对桌面槽位的内缩，折叠态 = 外屏（1080x2504 @500dpi，1dp=3.125px）。
+     展开态内屏槽位几何不同，覆盖值见 values-sw600dp/dimens.xml。 -->
+<resources>
+    <dimen name="widget_card_inset_left">10.8dp</dimen>
+    <dimen name="widget_card_inset_right">10.8dp</dimen>
+    <dimen name="widget_card_inset_top">5dp</dimen>
+    <dimen name="widget_card_inset_bottom">29.2dp</dimen>
+</resources>

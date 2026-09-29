@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 展开态（内屏，smallest-width ≥ 600dp）的卡片内缩。
+     真机实测（2224x2496 @500dpi）：
+       系统「日历」卡 x 105..533 / y 1005..1433  → 429x429
+       我们的卡      x 623..1052 / y 1000..1428  → 430x429
+     两卡同尺寸，只有纵向差了 5px（我们的偏上 5px = 1.6dp）。
+     所以上下内缩一增一减把卡片整体下移：5→6.6dp、29.2→27.6dp，上下之和仍是 34.2dp。 -->
+<resources>
+    <dimen name="widget_card_inset_left">10.8dp</dimen>
+    <dimen name="widget_card_inset_right">10.8dp</dimen>
+    <dimen name="widget_card_inset_top">6.6dp</dimen>
+    <dimen name="widget_card_inset_bottom">27.6dp</dimen>
+</resources>
