@@ -4,10 +4,17 @@ $ErrorActionPreference = 'Stop'
 
 $root   = 'd:\pro\RGCalendar'
 $tools  = Join-Path $root '.tools'
-$sdk    = Join-Path $tools 'android-sdk'
-$bt     = Join-Path $sdk 'build-tools\34.0.0'
-$jdk    = Join-Path $tools 'jdk17'
-$androidJar = Join-Path $sdk 'platforms\android-34\android.jar'
+
+# 复用本机已安装的 JDK 17 与 Android SDK（JAVA_HOME / ANDROID_SDK_ROOT），
+# 不再在 .tools 下放副本；变量值失效时（旧进程快照）退回默认安装位置。
+$sdk = $env:ANDROID_SDK_ROOT
+if (-not $sdk -or -not (Test-Path (Join-Path $sdk 'build-tools'))) { $sdk = $env:ANDROID_HOME }
+if (-not $sdk -or -not (Test-Path (Join-Path $sdk 'build-tools'))) { $sdk = 'D:\Android\sdk' }
+$jdk = $env:JAVA_HOME
+if (-not $jdk -or -not (Test-Path (Join-Path $jdk 'bin\javac.exe'))) { $jdk = 'D:\Android\jdk17' }
+
+$bt     = Join-Path $sdk 'build-tools\36.0.0'
+$androidJar = Join-Path $sdk 'platforms\android-36\android.jar'
 $proj   = Join-Path $root 'probe'
 $work   = Join-Path $proj '.build'
 $minSdk = 24

@@ -34,7 +34,7 @@
 
 构建链：`aapt2 compile → aapt2 link → javac → d8 → jar → zipalign → apksigner`，输出 `app\RGCalendar.apk`，成功打印 `BUILD_OK`。
 
-**首次构建前需要装好工具链**（Android SDK build-tools 34.0.0、JDK 17、aapt2 等），参见 `.tools\setup-sdk.ps1` 与 `.tools\setup-toolchain.ps1`。签名密钥缺失时脚本会自动生成 `debug.keystore`。
+**构建脚本复用本机已装好的工具链**：从 `JAVA_HOME` 取 JDK 17，从 `ANDROID_SDK_ROOT`（或 `ANDROID_HOME`）取 Android SDK（需要 build-tools 36.0.0 与 platform android-36）。两者取不到有效目录时回退到 `D:\Android\jdk17` 与 `D:\Android\sdk`。签名密钥缺失时脚本会自动生成 `.tools\debug.keystore`。
 
 ## 安装
 
@@ -47,5 +47,5 @@ adb install -r app\RGCalendar.apk
 ```
 app\       主应用（两个小工具 + 主界面）
 probe\     早期可行性验证程序（探针）
-.tools\    构建脚本与工具链（SDK / JDK 不入库）
+.tools\    构建脚本（工具链复用系统 JDK / Android SDK，不入库）
 ```

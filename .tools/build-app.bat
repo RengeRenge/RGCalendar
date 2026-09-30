@@ -2,10 +2,19 @@
 setlocal enabledelayedexpansion
 set ROOT=d:\pro\RGCalendar
 set TOOLS=%ROOT%\.tools
-set SDK=%TOOLS%\android-sdk
-set BT=%SDK%\build-tools\34.0.0
-set JDK=%TOOLS%\jdk17
-set AJAR=%SDK%\platforms\android-34\android.jar
+
+REM Reuse the JDK 17 and Android SDK already installed on this machine
+REM (JAVA_HOME / ANDROID_SDK_ROOT) instead of a private copy under .tools.
+REM A running process keeps the environment it was started with, so a value
+REM can be stale or point to a removed directory; fall back in that case.
+set SDK=%ANDROID_SDK_ROOT%
+if not exist "%SDK%\build-tools" set SDK=%ANDROID_HOME%
+if not exist "%SDK%\build-tools" set SDK=D:\Android\sdk
+set JDK=%JAVA_HOME%
+if not exist "%JDK%\bin\javac.exe" set JDK=D:\Android\jdk17
+
+set BT=%SDK%\build-tools\36.0.0
+set AJAR=%SDK%\platforms\android-36\android.jar
 set PROJ=%ROOT%\app
 set WORK=%PROJ%\.build
 set JAVA_HOME=%JDK%

@@ -1,5 +1,7 @@
 @echo off
-set BT=d:\pro\RGCalendar\.tools\android-sdk\build-tools\34.0.0
+set SDK=%ANDROID_SDK_ROOT%
+if not exist "%SDK%\build-tools" set SDK=D:\Android\sdk
+set BT=%SDK%\build-tools\36.0.0
 set APK=d:\pro\RGCalendar\probe\CalendarProbe.apk
 "%BT%\aapt2.exe" dump badging "%APK%"
 echo ---- signature ----
